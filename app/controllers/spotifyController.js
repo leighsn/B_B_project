@@ -1,19 +1,5 @@
 
-// to do:
-// make the store a nested hash of {name, id, {albums, tracks}}
-// post/format the data
-
-const spotify_store = {
-  artist_albums: [],
-}
-
-  function spotifyGetArtist(artist) {
-  // $('input:submit').on('click', function(event){
-    // $('images').empty()
-    // var artist_name 
-    // event.preventDefault(); 
-    // artist_name = $('#artist_name').val()
-
+function spotifyGetArtist(artist) {
   $.ajax({    
     method: "GET",
     url: `https://api.spotify.com/v1/search?q=${artist}&type=artist`,
@@ -22,7 +8,6 @@ const spotify_store = {
       spotify_store.artist_albums.push({name: artist.artists.items[0].name, image: artist.artists.items[0].images[1].url})
       getAlbums(artist_id)
         })
-      // })
     }
   
   function getAlbums(artist_id){      
@@ -61,12 +46,14 @@ const spotify_store = {
     }
   })
 
-  // (postTracks())
-
-
- 
   
+function appendAlbums() { 
+  $('.image').append(`<img src=${spotify_store.artist_albums[0].image}>`)
 
+  // spotify_store.artist_albums.forEach((article)=>{
+  //   $('#articles').append(`<div class="headline"><h2>${article.headline}</h2></div>`)
+  //   })
+}
 
 
 // map
