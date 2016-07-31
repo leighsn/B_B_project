@@ -14,9 +14,9 @@ function articleAdapter(artist) {
 }
 
 // adds articles to the page
-function appendArticles() { 
+function appendArticles() {
   store.articles.forEach((article)=>{
-    $('#articles').append(`<div class="headline"><h2>${article.headline}</h2></div>`)
+    $('#articles').append(`<div class="headline"><h3>${article.headline}</h3></div>`)
     $('#articles').append(`<div class="snippet">${article.snippet}</div>`)
     $('#articles').append(`<div class="link"><a href=${article.web_url}>Link to Article</a>`)
     })

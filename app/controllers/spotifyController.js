@@ -1,27 +1,27 @@
 
 function spotifyGetArtist(artist) {
-  $.ajax({    
+  $.ajax({
     method: "GET",
     url: `https://api.spotify.com/v1/search?q=${artist}&type=artist`,
-  }).done(function(artist) {    
+  }).done(function(artist) {
       var artist_id = artist.artists.items[0].id
       spotify_store.artist_albums.push({name: artist.artists.items[0].name, image: artist.artists.items[0].images[1].url})
       getAlbums(artist_id)
         })
     }
-  
-  function getAlbums(artist_id){      
-    $.ajax({    
+
+  function getAlbums(artist_id){
+    $.ajax({
       method: "GET",
       url: `https://api.spotify.com/v1/artists/${artist_id}/albums`,
     }).done(function(albums) {
-      // map the objects into a new object 
-      // if the album_type === album, add id and name into an object 
+      // map the objects into a new object
+      // if the album_type === album, add id and name into an object
       // pass the name and album id to the getTracks function
-         albums.items.map(function(album) { 
+         albums.items.map(function(album) {
           if (album.album_type === 'album') {
              spotify_store.artist_albums.push({id: album.id, name: album.name, tracks: ""})
-           }        
+           }
         })
          getTracks()
       })
@@ -29,8 +29,8 @@ function spotifyGetArtist(artist) {
 
   const getTracks = (function() {
     counter = 1
-      
-    for (var i = 1; i < 5; i++) { 
+
+    for (var i = 1; i < 5; i++) {
       $.ajax({
         method: "GET",
         url: `https://api.spotify.com/v1/albums/${spotify_store.artist_albums[i].id}/tracks`
@@ -38,17 +38,18 @@ function spotifyGetArtist(artist) {
         // create an array of tracks and then update it in the store for that album
         var artist_tracks = []
         for (var n = 0; n < tracks.items.length; n++) {
-          artist_tracks.push(tracks.items[n].name)          
+          artist_tracks.push(tracks.items[n].name)
         }
         spotify_store.artist_albums[counter].tracks = artist_tracks
         counter++
-      })          
+      })
     }
   })
 
-  
-function appendAlbums() { 
-  $('.image').append(`<img src=${spotify_store.artist_albums[0].image}>`)
+
+function appendAlbums() {
+  $('.image').append(`<img id="artist_image" src=${spotify_store.artist_albums[0].image}>`)
+  $('.artist_name').append(`<h2> ${spotify_store.artist_albums[0].name}</h2>`)
 
   // spotify_store.artist_albums.forEach((article)=>{
   //   $('#articles').append(`<div class="headline"><h2>${article.headline}</h2></div>`)
@@ -57,11 +58,11 @@ function appendAlbums() {
 
 
 // map
-// url: `https//api.spotify.com/v1/artists/${artist id}/albums`,    
-// get the artist id from 
+// url: `https//api.spotify.com/v1/artists/${artist id}/albums`,
+// get the artist id from
 //   https//api.spotify.com/v1/search?q=" + artist_name + "&type=artist
 
-// use the artist id to get the artist's album ids from 
+// use the artist id to get the artist's album ids from
 //   https//api.spotify.com/v1/artists/{artist id}/albums
 
 // use the album ids to get the album tracks from
