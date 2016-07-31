@@ -4,6 +4,7 @@ $(document).ready(() => {
     $('#artist_form').on('submit',function(event){
       $('#articles').empty()
       $('.image').empty()
+      $('.artist_name').empty()
       store.articles = []
       spotify_store.artist_albums = []
       event.preventDefault()
