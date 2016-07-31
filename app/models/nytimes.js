@@ -14,11 +14,6 @@ class Articles{
 }
 
  
-
-
-
-
-
   // function render(articles) {
   //   debugger
   //   let orange = $(`#articles_template`).html()

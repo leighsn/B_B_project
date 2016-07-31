@@ -5,6 +5,10 @@ $(document).ready(() => {
       $('#articles').empty()
       $('.image').empty()
       $('.artist_name').empty()
+      $('.albums').empty()
+ // 
+ // 247c8522b93a971f3eaa641d07aa8dc79210edc6
+ // 6f4eef2c65b21ff642aa80ea898edd1c27c44983
       store.articles = []
       spotify_store.artist_albums = []
       event.preventDefault()

@@ -29,8 +29,7 @@ function spotifyGetArtist(artist) {
 
   const getTracks = (function() {
     counter = 1
-
-    for (var i = 1; i < 5; i++) {
+    for (var i = 1; i < 6; i++) { 
       $.ajax({
         method: "GET",
         url: `https://api.spotify.com/v1/albums/${spotify_store.artist_albums[i].id}/tracks`
@@ -47,14 +46,55 @@ function spotifyGetArtist(artist) {
   })
 
 
-function appendAlbums() {
-  $('.image').append(`<img id="artist_image" src=${spotify_store.artist_albums[0].image}>`)
-  $('.artist_name').append(`<h2> ${spotify_store.artist_albums[0].name}</h2>`)
+  function appendAlbums() {
+    $('.image').append(`<img src=${spotify_store.artist_albums[0].image} height="300", width="300">`)
+    $('.artist_name').append(`<h2> ${spotify_store.artist_albums[0].name}</h2>`)
+    for (var i = 1; i < 6; i++) {
+      $('.albums').append(`<div id=album${[i]}><ul> ${spotify_store.artist_albums[i].name}</ul></div>`)
+      var album_tracks = spotify_store.artist_albums[i].tracks
+        album_tracks.forEach((track)=>{
+            $(`.albums #album${i} ul`).append(`<li> ${track}</li>`)
+        })
+    }
+      $(function() {
 
-  // spotify_store.artist_albums.forEach((article)=>{
-  //   $('#articles').append(`<div class="headline"><h2>${article.headline}</h2></div>`)
-  //   })
-}
+
+      $('li').hide()
+      // var hoverElem = null;
+      //   $('*').hover(function() {hoverElem = this});
+
+      $('#album1 ul').mouseenter(function() {
+        $('#album1 ul li').show()
+      })
+      $('ul').mouseleave(function() {
+        $('li').hide()
+      })
+      $('#album2 ul').mouseenter(function() {
+        $('#album2 ul li').show()
+      })
+      $('ul').mouseleave(function() {
+        $('li').hide()
+      })
+        $('#album3 ul').mouseenter(function() {
+        $('#album3 ul li').show()
+      })
+      $('ul').mouseleave(function() {
+        $('li').hide()
+      })
+        $('#album4 ul').mouseenter(function() {
+        $('#album4 ul li').show()
+      })
+      $('ul').mouseleave(function() {
+        $('li').hide()
+      })
+        $('#album5 ul').mouseenter(function() {
+        $('#album5 ul li').show()
+      })
+      $('ul').mouseleave(function() {
+        $('li').hide()
+      })
+    })
+  }
 
 
 // map
