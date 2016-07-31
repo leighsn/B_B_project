@@ -3,6 +3,8 @@ $(document).ready(() => {
   $(function(){
     $('#artist_form').on('submit',function(event){
       $('#articles').empty()
+      $('.image').empty()
+      $('.albums').empty()
       store.articles = []
       spotify_store.artist_albums = []
       event.preventDefault()      

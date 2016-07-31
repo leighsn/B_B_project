@@ -4,20 +4,36 @@
   <meta charset="UTF-8">
   <title>Artists and Articles</title>
   <script src="lib/jquery-1.11.3.js"></script>
-  <script src="app/index.js"></script>
-  <script src="app/spotify.js"></script>
+  <script src="app/models/app.js"></script>
+  <script src="app/models/nytimes.js"></script>
+  <script src="app/models/spotify.js"></script>
+  <script src="app/controllers/nytimesController.js"></script>
+  <script src="app/controllers/spotifyController.js"></script>
 </head>
-  <body>
-  <div class="image" ></div>
+  <body>  
     <h1 id="brand">Artists and Articles</h1>
-    <div class="details">Choose an artist</div>
     <form id = 'artist_form'>
      <div class='name'>
        <label for="name">Artist Name</label>
        <input id='artist' class='input input_name' type="text" >
-     </div>
+     </div>     
      <input id="submit-button" type="submit">
     </form>
+  
+
+    <div class="image" ></div>
+    <div class="albums" ></div>
+<!--     <script>
+    $(function() {$('li').hide()
+      $('ul').mouseenter(function() {
+        $('li').show()    
+      })
+      $('ul').mouseleave(function() {
+        $('li').hide()    
+      })
+    })
+    </script> -->
+    
     <!-- <div id="artist">
       <ul>
        <li class="followers"></li>
