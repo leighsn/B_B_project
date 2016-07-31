@@ -29,7 +29,7 @@ function spotifyGetArtist(artist) {
 
   const getTracks = (function() {
     counter = 1
-    for (var i = 1; i < 6; i++) { 
+    for (var i = 1; i < 6; i++) {
       $.ajax({
         method: "GET",
         url: `https://api.spotify.com/v1/albums/${spotify_store.artist_albums[i].id}/tracks`
@@ -49,6 +49,8 @@ function spotifyGetArtist(artist) {
   function appendAlbums() {
     $('.image').append(`<img src=${spotify_store.artist_albums[0].image} height="300", width="300">`)
     $('.artist_name').append(`<h2> ${spotify_store.artist_albums[0].name}</h2>`)
+    $('.albums').append(`<h3> Albums by ${spotify_store.artist_albums[0].name}</h3>`)
+
     for (var i = 1; i < 6; i++) {
       $('.albums').append(`<div id=album${[i]}><ul> ${spotify_store.artist_albums[i].name}</ul></div>`)
       var album_tracks = spotify_store.artist_albums[i].tracks
