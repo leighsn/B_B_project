@@ -33,7 +33,7 @@ $(document).ready(() => {
       $('#articles').empty()
       event.preventDefault()      
       var artist = $('#artist').val()
-      var spotify = spotifyGetArtist(artist)      
+      var spotify = spotifyGetArtist(artist)        
       var article = articleAdapter(artist).then(function() {
         store.articles.forEach((article)=>{
           $('#articles').append(`<div class="headline"><h2>${article.headline}</h2></div>`)
