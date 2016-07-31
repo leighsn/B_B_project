@@ -31,8 +31,9 @@ $(document).ready(() => {
   $(function(){
     $('#artist_form').on('submit',function(event){
       $('#articles').empty()
-      event.preventDefault()
+      event.preventDefault()      
       var artist = $('#artist').val()
+      var spotify = spotifyGetArtist(artist)      
       var article = articleAdapter(artist).then(function() {
         store.articles.forEach((article)=>{
           $('#articles').append(`<div class="headline"><h2>${article.headline}</h2></div>`)
