@@ -2,24 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Flatiron Course Catalogue</title>
+  <title>Artists and Articles</title>
   <script src="lib/jquery-1.11.3.js"></script>
-  <script src="index.js"></script>
+  <script src="app/index.js"></script>
 </head>
-<body>
-  <h1 id="brand">Flatiron Music School & Salsa</h1>
-     
-       
-  <div class="details">Choose an artist</div>
-   
-   <form action="">
-     <div class='name '>
+  <body>
+    <h1 id="brand">Artists and Articles</h1>
+    <div class="details">Choose an artist</div>
+    <form id = 'artist_form'>
+     <div class='name'>
        <label for="name">Artist Name</label>
-       <input id='artist_name' class='input input_name' type="text" >
+       <input id='artist' class='input input_name' type="text" >
      </div>
-     <input type="submit" >
-   </form>
-   <div class="images">
+     <input id="submit-button" type="submit">
+    </form>
+    <!-- <div id="artist">
+      <ul>
+       <li class="followers"></li>
+       <li class="albums"></li>
+       <li class="top tracks"></li>
+       <li class="images"></li>
+      </ul>
+    </div> -->
+    <div id="articles">
+
+      <!-- <script id="articles_template" type= "text/x-handlebars-template">
+        {{#each this}}
+          <a href={{web_url}}>{{headline.main}}</a>
+          <p>{{snippet}}</p>
+        {{/each}}
+      </script> -->
    </div>
-</body>
+
+  </body>
 </html>
