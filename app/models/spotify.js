@@ -5,6 +5,12 @@
 // make sure the albums are uniq
 
 const spotify_store = {
-  artist_albums: [],
+  artist: []
 }
 
+class Artist {
+  constructor(name, artistImage, id, popularity, followers)
+  this.name = name
+  this.artistImage =
+
+}
