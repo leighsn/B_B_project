@@ -22,6 +22,7 @@ $(document).ready(() => {
           appendAlbums()
         })
       })
+      
       function renderArticles(){
           var articleTemplate = $('#article-template').html();
           var template = Handlebars.compile(articleTemplate);
