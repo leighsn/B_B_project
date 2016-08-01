@@ -84,12 +84,9 @@ sup {
 sub {
   bottom: -.25em;
 }
-/*img {
+img {
   border: 0;
   border-radius: 25px;
-  width: 500px;
-  height: 450px;*/
-
 }
 svg:not(:root) {
   overflow: hidden;
