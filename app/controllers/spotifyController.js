@@ -71,20 +71,23 @@ function spotifyGetArtist(artist) {
             ]);
           })        
         // Set chart options
-        var options = {'title':'Related Artists by popularity',
+        var options = {'title':'Related Artists by Followers on Spotify',
                        'width':800,
                        'height':700,
-                       'colors': ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']};
+                       'colors': ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'],
+                       'legend': 'none'};
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
 
-        google.visualization.events.addListener(chart, 'select', selectHandler);
+        // google.visualization.events.addListener(chart, 'select', selectHandler);
 
-          function selectHandler(e) {
-            chart.setSelection(chart, kickOff())
-          }
+        //   function selectHandler() {
+        //     // chart.setSelection(chart, kickOff())
+        //     var selectedItem = chart.getSelection()
+        //     console.log('stopppp')
+        //   }
         }
       }
 
