@@ -2,9 +2,7 @@ var rootURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json"
 const store = {
   articles: []
 }
-const smallStore = {
-  limitedArticles: []
-}
+
 
 class Articles {
 

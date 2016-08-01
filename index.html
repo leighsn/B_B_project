@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="app/style/assets/css/bootstrap.css">
   <script src="app/style/main.css"></script>
   <script src="lib/jquery-1.11.3.js"></script>
+  <script src="lib/handlebars.js"></script>
   <script src="app/models/app.js"></script>
   <script src="app/models/nytimes.js"></script>
   <script src="app/models/spotify.js"></script>
@@ -54,107 +55,31 @@
   		</div>
   	</div>
 
-    <div id ="artist_articles" class="content-section-b" style="border-top: 0">
+
+<!-- HANDLEBAR TEMPLATE -->
+      <div class="container">
         <div class="row">
-          <div class="col-sm-6">
-            <div id="articles">
-                <!-- article go here  -->
-            </div>
-            <!-- <div class="link">
-              <a class="btn btn-embossed btn-info"  role="button">View Article</a></p>
-            </div> -->
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6">
-          second row of articles
-              <!-- article go here  -->
-          </div>
-          <!-- <div class="link">
-            <a class="btn btn-embossed btn-info"  role="button">View Article</a></p>
-          </div> -->
-      </div>
-    </div>
-    </div>
-
-
-
-          <!-- <div class="col-sm-4 wow fadeInLeftBig"  data-animation-delay="200">
-            <h3 class="section-heading">Article 1 headline</h3>
-            <p class="lead">
-  						Article snippet
-  					</p>
-  					<a class="btn btn-embossed btn-info" href="#" role="button">View Article</a></p>
-  				</div>
-          <div class="col-sm-4 wow fadeInLeftBig"  data-animation-delay="200">
-            <h3 class="section-heading">Article 2 headline</h3>
-            <p class="lead">
-  						Article snippet
-  					</p>
-  					<a class="btn btn-embossed btn-info" href="#" role="button">View Article</a></p>
-  				</div>
-          <div class="col-sm-4 wow fadeInLeftBig"  data-animation-delay="200">
-            <h3 class="section-heading">Article 3 headline</h3>
-            <p class="lead">
-  						Article snippet
-  					</p>
-  					<a class="btn btn-embossed btn-info" href="#" role="button">View Article</a></p>
-  				</div> -->
-
-            <!-- second row of articles -->
-          <!-- </div>
-          <div class="row">
-            <div class="col-sm-4 pull-right wow fadeInRightBig">
-              <div id="articles"></div>
-            </div>
-            <div class="col-sm-4 wow fadeInLeftBig"  data-animation-delay="200">
-              <h3 class="section-heading">Article 4 headline</h3>
-              <p class="lead">
-                Article snippet
-              </p>
-              <a class="btn btn-embossed btn-info" href="#" role="button">View Article</a></p>
-            </div>
-            <div class="col-sm-4 wow fadeInLeftBig"  data-animation-delay="200">
-              <h3 class="section-heading">Article 5 headline</h3>
-              <p class="lead">
-                Article snippet
-              </p>
-              <a class="btn btn-embossed btn-info" href="#" role="button">View Article</a></p>
-            </div>
-            <div class="col-sm-4 wow fadeInLeftBig"  data-animation-delay="200">
-              <h3 class="section-heading">Article 6 headline</h3>
-              <p class="lead">
-                Article snippet
-              </p>
-              <a class="btn btn-embossed btn-info" href="#" role="button">View Article</a></p>
-            </div>
-          </div> -->
-        <!-- /.container -->
-
-
-<!--
-    <div class="artists">
-      <div class="center-block">
-        <div class="text-center">
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-              <h1 id="brand">Artists and Articles</h1>
-              <form id = 'artist_form'>
-                <div class='name'>
-                 <label for="name">Artist Name</label>
-                 <input id='artist' class='input input_name' type="text" >
-                 <input id="submit-button" type="submit">
+          <div class="col-sm-12">
+              <div class="row">
+                <div class="article-row">
+                <script id="article-template" type="text/x-handlebars-template">
+                {{#each articles as |article|}}
+                <div class="col-sm-6 col-sm-6">
+                  <h3>{{article.headline}}</h3>
+                  <p>{{article.snippet}}</p>
+                  <a href={{article.web_url}}>Link to Article</a>
+                  <!-- this is where article will go -->
                 </div>
-              </form>
-              <br>
-              <div class="image" ></div>
-              <div class="artist_name"></div>
-
+                {{/each}}
+                </script>
+              </div>
             </div>
           </div>
         </div>
-       </div>
-      </div> -->
+      </div>
+
+
+
         <br>
     <div class="container">
 

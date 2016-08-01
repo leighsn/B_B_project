@@ -15,9 +15,19 @@ $(document).ready(() => {
       var artist = $('#artist').val()
       var spotify = spotifyGetArtist(artist)
       var article = articleAdapter(artist).then(function appendData() {
-          appendArticles()
+          renderArticles()
           appendAlbums()
         })
       })
+      function renderArticles(){
+
+          var articleTemplate = $('#article-template').html();
+          var template = Handlebars.compile(articleTemplate);
+          var htmlString = template({articles: store.articles.slice(0, 4)})
+          $('.article-row').empty();
+          $('.article-row').append(htmlString);
+
+        }
+
 
   })
