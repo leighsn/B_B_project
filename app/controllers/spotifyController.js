@@ -26,8 +26,9 @@ function getAlbums(artistId){
       new Album(album.id, album.name, album.images[2].url, artistId)
       }
     })
-    var sixAlbums = artist_store.artist[0].albums.slice(0,6)
-    getTracks(sixAlbums)
+    artist_store.artist[0].albums.splice(6,14)
+    var storedAlbums = artist_store.artist[0].albums
+    getTracks(storedAlbums)
   })
 }
 
