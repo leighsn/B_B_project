@@ -47,7 +47,7 @@ function spotifyGetArtist(artist) {
 
 
   function appendAlbums() {
-    $('.image').append(`<img src=${spotify_store.artist_albums[0].image} height="300", width="300">`)
+    $('#artist_image .container .row .col-sm-6 #image').append(`<img src=${spotify_store.artist_albums[0].image} height="300", width="300">`)
     $('.artist_name').append(`<h2> ${spotify_store.artist_albums[0].name}</h2>`)
     $('.albums').append(`<h3> Albums by ${spotify_store.artist_albums[0].name}</h3>`)
 

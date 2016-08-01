@@ -15,15 +15,54 @@
 /* Import fonts */
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
 
-* { 
+* {
 	margin: 0;
 	padding: 0px;
     font-family: 'Lato', sans-serif;
-} 
-body { 
-	background: #fff; 
-	margin: 0; 
+}
+body {
+	background: #fff;
+	margin: 0;
 	color: #5a5a5a;
+}
+
+.intro-header {
+	height: 80%; /* Full PAge */
+	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+	padding-bottom: 50px;
+	color: #DCDCDC;
+	background: url(https://c1.staticflickr.com/5/4007/4548090992_bdc6ee04ae_o.jpg) no-repeat center center;
+	background-size: cover;
+	opacity: 60%;
+	text-align: center;
+}
+
+.content-section-b {
+	border-top: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+	padding: 60px;
+	padding-top: 60px;
+}
+
+.content-section-a {
+	background-color: #f8f8f8;
+	padding: 60px;
+	padding-top: 60px;
+}
+
+.section-heading {
+	margin-bottom: 30px;
+}
+
+.section-heading-spacer {
+	border-top: 3px solid #e7e7e7;
+	width: 200px;
+	float: left;
+}
+
+.lead {
+	font-size: 16px;
+	font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -32,16 +71,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-p { 
-	padding: 0; 
-	margin-bottom: 12px; 
+p {
+	padding: 0;
+	margin-bottom: 12px;
     font-family: 'Lato', sans-serif;
 	font-weight: 300;
-	font-size: 16px; 
+	font-size: 16px;
 	line-height: 26px;
 	letter-spacing: 1px;
-	color: #666; 
-	margin-top: 10px; 
+	color: #666;
+	margin-top: 10px;
 }
 
 html,
@@ -91,10 +130,10 @@ body {
 	padding: 0;
 	margin: 0;
 }
-a { 
+a {
 	padding: 0;
 	margin: 0;
-	text-decoration: none; 
+	text-decoration: none;
 	-webkit-transition: background-color .4s linear, color .4s linear;
 	-moz-transition: background-color .4s linear, color .4s linear;
 	-o-transition: background-color .4s linear, color .4s linear;
@@ -169,7 +208,7 @@ input {
 	text-transform: uppercase;
 	padding: 12px 28px 11px 28px;
 	margin-top: 20px;
-	}	
+	}
 
 .btn-green {
 	background: #03C9A9;
@@ -186,7 +225,7 @@ input {
 	min-height: 700px;
 	width: 100%;
 	color: white;
-	
+
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -203,7 +242,7 @@ input {
 	left: 45px;
 	font-size: 18px;
 	font-weight: 900;
-	position:absolute; 
+	position:absolute;
 }
 
 #h .social {
@@ -243,7 +282,7 @@ input {
 	min-height: 450px;
 	width: 100%;
 	color: white;
-	
+
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -267,7 +306,7 @@ input {
 	border-radius: 25px;
 	padding-top: 15px;
 	padding-bottom: 25px;
-	margin: 5px; 
+	margin: 5px;
 }
 
 .price-table .p-head {

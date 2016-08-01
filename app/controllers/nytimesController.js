@@ -13,10 +13,11 @@ function articleAdapter(artist) {
   })
 }
 
-// adds articles to the page
 function appendArticles() {
-  store.articles.forEach((article)=>{
-    $('#articles').append(`<h4>${article.headline}</h4>`)
+
+  store.articles.slice(0, 4).forEach((article)=>{
+    // $('#artist_articles .row .col-sm-6 #articles').append(`<img src=${article.multimedia} height="50", width="100">`)
+    $('#articles').append(`<h4>${article.headline}</h4></div>`)
     $('#articles').append(`<p>${article.snippet}<p>`)
     $('#articles').append(`<a href=${article.web_url}>Link to Article</a>`)
     })
