@@ -1,6 +1,10 @@
 // kick off function on click
 
+
 $(document).ready(() => {
+
+// 247c8522b93a971f3eaa641d07aa8dc79210edc6
+// 6f4eef2c65b21ff642aa80ea898edd1c27c44983function kickItOff() {
 
     $('#artist_form').on('submit',function(event){
       let artist = $('#artist').val()
@@ -19,8 +23,12 @@ $(document).ready(() => {
       var article = articleAdapter(artist).then(function appendData() {
           renderArticles()
           appendAlbums()
+          compareArtists()
+        })//return results from NYT API and append to HTML
+    })//actions kicked off by first submit button
+
         })
-      })
+
       function renderArticles(){
           var articleTemplate = $('#article-template').html();
           var template = Handlebars.compile(articleTemplate);
@@ -29,13 +37,6 @@ $(document).ready(() => {
           $('.article-row').append(htmlString);
         }
 
-      // function renderAlbums(){
-      //     var albumTemplate = $('#album-template').html();
-      //     var template = Handlebars.compile(albumTemplate);
-      //     var htmlString = template({artist_albums: spotify_store.artist_albums.slice(0, 4)})
-      //     $('.album-row').empty();
-      //     $('.album-row').append(htmlString);
-      //   }
 
       $('body').on('submit', '#event_form', function(event){
            event.preventDefault();
@@ -43,6 +44,4 @@ $(document).ready(() => {
            let artist = $('#artist').val().replace((/[" "]/),"%20")
            var eventFind = findEventNear(artist,location)
 
-       });//actions kicked off by second submit button
-
-})//return results from NYT API and append to HTML
+        });//actions kicked off by second submit button
