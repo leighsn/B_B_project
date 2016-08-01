@@ -20,7 +20,7 @@ function spotifyGetArtist(artist) {
       // pass the name and album id to the getTracks function
          albums.items.map(function(album) {
           if (album.album_type === 'album') {
-             spotify_store.artist_albums.push({id: album.id, name: album.name, tracks: ""})
+             spotify_store.artist_albums.push({id: album.id, album_image: album.images[2].url, tracks: ""})
            }
         })
          getTracks()
@@ -47,20 +47,18 @@ function spotifyGetArtist(artist) {
 
 
   function appendAlbums() {
-    $('#artist_image .container .row .col-sm-6 #image').append(`<img src=${spotify_store.artist_albums[0].image} height="300", width="300">`)
+    $('#artist_image .container .row .col-sm-6 #image').append(`<img src=${spotify_store.artist_albums[0].image} height="500" width="450">`)
     $('.artist_name').append(`<h2> ${spotify_store.artist_albums[0].name}</h2>`)
     $('.albums').append(`<h3> Albums by ${spotify_store.artist_albums[0].name}</h3>`)
 
     for (var i = 1; i < 6; i++) {
-      $('.albums').append(`<div id=album${[i]}><ul> ${spotify_store.artist_albums[i].name}</ul></div>`)
+      $('.albums').append(`<div id=album${[i]}><ul> <img src=${spotify_store.artist_albums[i].album_image} height="75" width="75"></ul></div>`)
       var album_tracks = spotify_store.artist_albums[i].tracks
         album_tracks.forEach((track)=>{
             $(`.albums #album${i} ul`).append(`<li> ${track}</li>`)
         })
     }
-      $(function() {
-
-
+    $(function() {
       $('li').hide()
       // var hoverElem = null;
       //   $('*').hover(function() {hoverElem = this});
