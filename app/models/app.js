@@ -19,19 +19,29 @@
       event.preventDefault()
       var spotify = spotifyGetArtist(artist)
       var article = articleAdapter(artist).then(function appendData() {
-          appendArticles()
+          renderArticles()
           appendAlbums()
           compareArtists()
         })//return results from NYT API and append to HTML
     })//actions kicked off by first submit button
 
+        })
 
- $('body').on('submit', '#event_form', function(event){
-      event.preventDefault();
-      let location = $('#location-input').val()
-      let artist = $('#artist').val().replace((/[" "]/),"%20")
-      var eventFind = findEventNear(artist,location)
+      function renderArticles(){
+          var articleTemplate = $('#article-template').html();
+          var template = Handlebars.compile(articleTemplate);
+          var htmlString = template({articles: store.articles.slice(0, 4)})
+          $('.article-row').empty();
+          $('.article-row').append(htmlString);
+        }
 
-  });//actions kicked off by second submit button 
 
-  })
+      $('body').on('submit', '#event_form', function(event){
+           event.preventDefault();
+           let location = $('#location-input').val()
+           let artist = $('#artist').val().replace((/[" "]/),"%20")
+           var eventFind = findEventNear(artist,location)
+
+        });//actions kicked off by second submit button 
+
+
