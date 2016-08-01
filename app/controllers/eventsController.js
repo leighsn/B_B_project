@@ -16,10 +16,6 @@ function findEventNear(artist,location) {
   })
 }
 
-// function logResults(json){
-//   console.log(json)
-// }
-
 function locationFormatter(location){
   let locationArray = location.split(",")
   let formattedCity = locationArray[0].replace((/[" "]/),'+')
