@@ -1,11 +1,10 @@
-
 function spotifyGetArtist(artist) {
   $.ajax({
     method: "GET",
     url: `https://api.spotify.com/v1/search?q=${artist}&type=artist`,
   }).done(function(artist) {
       var artist_id = artist.artists.items[0].id
-      spotify_store.artist_albums.push({name: artist.artists.items[0].name, image: artist.artists.items[0].images[1].url})
+       spotify_store.artist_albums.push({id: artist_id, name: artist.artists.items[0].name, image: artist.artists.items[0].images[1].url, followers: artist.artists.items[0].followers.total, popularity: artist.artists.items[0].popularity})
       getAlbums(artist_id)
         })
     }
@@ -45,6 +44,53 @@ function spotifyGetArtist(artist) {
     }
   })
 
+  function compareArtists (){
+    // https://api.spotify.com/v1/artists/{id}/related-artists
+      $.ajax({
+        method: "GET",
+        url: `https://api.spotify.com/v1/artists/${spotify_store.artist_albums[0].id}/related-artists`
+      }).done(function(artists) {
+          related_artists = []
+            artists.artists.forEach((artist)=> {
+              related_artists.push({id: artist.id, name: artist.name, popularity: artist.popularity, followers: artist.followers.total})
+            })
+            drawChart(related_artists)
+        })      
+    }
+
+      function drawChart(related_artists) {
+       // Create the data table.
+       // <a class="btn btn-embossed btn-info" href="#" role="button">View Article</a></p>
+        var data = new google.visualization.DataTable();
+        if (related_artists !== undefined) {
+          data.addColumn('string', 'Artist');
+          data.addColumn('number', 'Followers');
+          related_artists.forEach((artist)=> {
+            data.addRows([          
+            [artist.name, artist.followers],          
+            ]);
+          })        
+        // Set chart options
+        var options = {'title':'Related Artists by popularity',
+                       'width':800,
+                       'height':700,
+                       'colors': ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+
+        google.visualization.events.addListener(chart, 'select', selectHandler);
+
+          function selectHandler(e) {
+            chart.setSelection(chart, kickOff())
+          }
+        }
+      }
+
+  
+
+
 
   function appendAlbums() {
     $('#artist_image .container .row .col-sm-6 #image').append(`<img src=${spotify_store.artist_albums[0].image} height="500" width="450">`)
@@ -58,6 +104,7 @@ function spotifyGetArtist(artist) {
             $(`.albums #album${i} ul`).append(`<li> ${track}</li>`)
         })
     }
+    
     $(function() {
       $('li').hide()
       // var hoverElem = null;
@@ -95,15 +142,3 @@ function spotifyGetArtist(artist) {
       })
     })
   }
-
-
-// map
-// url: `https//api.spotify.com/v1/artists/${artist id}/albums`,
-// get the artist id from
-//   https//api.spotify.com/v1/search?q=" + artist_name + "&type=artist
-
-// use the artist id to get the artist's album ids from
-//   https//api.spotify.com/v1/artists/{artist id}/albums
-
-// use the album ids to get the album tracks from
-//   https://api.spotify.com/v1/albums/{id}/tracks
