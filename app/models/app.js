@@ -9,7 +9,7 @@ $(document).ready(() => {
       $('#artist_shows').remove()
       $('#location-input').remove()
       $('#location-submit').remove()
-      $('.image').empty()
+      $('#image').empty()
       $('.artist_name').empty()
       $('.albums').empty()
       $('#event_form').append(`<h3 id="artist_shows">${artist} Concerts by City:</h3><input id="location-input" type="text" ><input id="location-submit" type="submit">`)
