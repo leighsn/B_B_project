@@ -1,8 +1,10 @@
 // kick off function on click
+
+
+$(document).ready(() => {
+
 // 247c8522b93a971f3eaa641d07aa8dc79210edc6
 // 6f4eef2c65b21ff642aa80ea898edd1c27c44983function kickItOff() {
-  $(document).ready(
-      function kickOff() {
 
     $('#artist_form').on('submit',function(event){
       let artist = $('#artist').val()
@@ -15,7 +17,7 @@
       $('.albums').empty()
       $('#event_form').append(`<h3 id="artist_shows">${artist} Concerts by City:</h3><input id="location-input" type="text" ><input id="location-submit" type="submit">`)
       store.articles = []
-      spotify_store.artist_albums = []
+      artist_store.artist = []
       event.preventDefault()
       var spotify = spotifyGetArtist(artist)
       var article = articleAdapter(artist).then(function appendData() {
@@ -42,6 +44,4 @@
            let artist = $('#artist').val().replace((/[" "]/),"%20")
            var eventFind = findEventNear(artist,location)
 
-        });//actions kicked off by second submit button 
-
-
+        });//actions kicked off by second submit button
