@@ -9,19 +9,32 @@ const artist_store = {
 }
 
 class Artist {
-  constructor(name, artistImage, id, popularity, followers)
+  constructor(name, artistImage, id, popularity, followers, albums) {
   this.name = name
   this.artistImage = artistImage
   this.id = id
   this.popularity = popularity
   this.followers = followers
+  this.albums = []
   artist_store.artist.push(this)
+  }
 }
 
-
-const album_store = {
-  
-}
 class Album {
-  constructor(name, albumImage, artistId, tracks)
+  constructor(id, name, albumImage, artistId, tracks) {
+  this.id = id
+  this.name = name
+  this.albumImage = albumImage
+  this.artistId = artistId
+  this.tracks = []
+  artist_store.artist[0].albums.push(this)
+  }
+}
+
+class Track {
+  constructor(name, albumId){
+    this.name = name,
+    this.albumId = albumId
+    artist_store.artist[0].albums[0].tracks.push(this)
+  }
 }

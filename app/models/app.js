@@ -17,7 +17,7 @@ $(document).ready(() => {
       $('.albums').empty()
       $('#event_form').append(`<h3 id="artist_shows">${artist} Concerts by City:</h3><input id="location-input" type="text" ><input id="location-submit" type="submit">`)
       store.articles = []
-      spotify_store.artist_albums = []
+      artist_store.artist = []
       event.preventDefault()
       var spotify = spotifyGetArtist(artist)
       var article = articleAdapter(artist).then(function appendData() {
