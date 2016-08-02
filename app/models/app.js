@@ -33,10 +33,6 @@ $(document).ready(() => {
      })
   });//actions kicked off by second submit button
 
-
-
-
-
   function renderArticles(){
       var articleTemplate = $('#article-template').html();
       var template = Handlebars.compile(articleTemplate);
