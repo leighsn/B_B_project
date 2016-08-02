@@ -29,14 +29,9 @@ $(document).ready(() => {
      let location = $('#location-input').val()
      let artist = $('#artist').val().replace((/[" "]/),"%20")
      findEventNear(artist,location).then(function appendConcerts() {
-      debugger
       renderConcerts()
      })
   });//actions kicked off by second submit button
-
-
-
-
 
   function renderArticles(){
       var articleTemplate = $('#article-template').html();
@@ -57,7 +52,6 @@ $(document).ready(() => {
   }
 
   function renderConcerts(){
-    debugger
     var concertTemplate = $(`#concert-template`).html();
     var template = Handlebars.compile(concertTemplate);
     var htmlString = template({concerts: concert_store.concerts})
