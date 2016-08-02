@@ -3,19 +3,18 @@ const rootUri = 'http://api.bandsintown.com/artists/'
 const app_id = 'eman14'
 
 function findEventNear(artist,location) {
-  var formattedLocation = locationFormatter(location) 
+  var formattedLocation = locationFormatter(location)
   var myUri = rootUri + artist + '/events/search.json?api_version=2.0&app_id='+app_id+'&location='+formattedLocation+'&radius=25'
   return $.ajax({
     method: "GET",
     url: myUri,
     crossDomain: true,
     dataType: 'jsonp',
-  }).done(function(results){
+  }).done(function(results){ /////move this logic out of findEventNear to new function
       if (!results.length){
       return "There are no concerts in the area. Sorry!"
-    } 
-    else{
-      var concertResults = results 
+    } else{
+      var concertResults = results
       concertResults.forEach((result) => new Concert(result.title, result.formatted_datetime, result.formatted_location, result.ticket_url))
     }
   })

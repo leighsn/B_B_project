@@ -21,7 +21,7 @@ function getAlbums(artistId){
       if (album.album_type === 'album') {
       new Album(album.id, album.name, album.images[2].url, artistId)
       }
-    })
+    }) ////move logic into new function
     artist_store.artist[0].albums.splice(6,14)
     var storedAlbums = artist_store.artist[0].albums
     getTracks(storedAlbums)
@@ -61,7 +61,7 @@ function getAlbums(artistId){
        // Create the data table.
        // <a class="btn btn-embossed btn-info" href="#" role="button">View Article</a></p>
         var data = new google.visualization.DataTable();
-        if (related_artists !== undefined) {
+        if (related_artists !== undefined) { ///move logic into new object
           data.addColumn('string', 'Artist');
           data.addColumn('number', 'Followers');
           related_artists.forEach((artist)=> {
@@ -70,6 +70,8 @@ function getAlbums(artistId){
             ]);
           })
         // Set chart options
+        ///should this be declared at top?
+        ///maybe it should be in a separate styling file?
         var options = {'title':'Related Artists by popularity',
                        'width':1400,
                        'height':800,

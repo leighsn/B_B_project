@@ -2,7 +2,7 @@
 $(document).ready(() => {
   $('#artist_form').on('submit',function(event){
     let artist = $('#artist').val()
-    $('.artist-name').empty()
+    $('.artist-name').empty()///I dont know if it's possible, but can you make an 'emptyAll' function
     $('.clear-image').empty()
     $('.clear-albums').empty()
     $('.clear-tracks').empty()
@@ -15,7 +15,7 @@ $(document).ready(() => {
     event.preventDefault()
     var spotify = spotifyGetArtist(artist)
     articleAdapter(artist).then(function appendData() {
-        renderArticles()
+        renderArticles()//similarly maybe a renderAll function? not sure this will work
         renderArtist()
         renderAlbums()
         compareArtists()
@@ -59,7 +59,7 @@ $(document).ready(() => {
     $('.concert-row').append(htmlString);
   }
 
-  function renderAlbums() {
+  function renderAlbums() { ///method is very long---maybe break it up
     var albumTemplate = $(`#album-template`).html();
     var template = Handlebars.compile(albumTemplate);
     var htmlString = template({albums: artist_store.artist[0].albums})
