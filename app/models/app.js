@@ -18,12 +18,14 @@ $(document).ready(() => {
       $('#event_form').append(`<h3 id="artist_shows">${artist} Concerts by City:</h3><input id="location-input" type="text" ><input id="location-submit" type="submit">`)
       store.articles = []
       artist_store.artist = []
+      $(`.track-names`).hide()
       event.preventDefault()
       var spotify = spotifyGetArtist(artist)
       var article = articleAdapter(artist).then(function appendData() {
           renderArticles()
           renderArtist()
           renderAlbums()
+          // hideMe()
           // appendAlbums()
           // compareArtists()
         })//return results from NYT API and append to HTML
@@ -63,7 +65,7 @@ $(document).ready(() => {
         //   var htmlString = template({albums: album.albumImage})
         //   $('.artist-albums').append(htmlString);
         // })
-      }
+
 
       // function renderTracks() {
       //   var albumTemplate = $(`#album-template`).html();
@@ -73,10 +75,58 @@ $(document).ready(() => {
       // }
 
 
-      $('body').on('submit', '#event_form', function(event){
-           event.preventDefault();
-           let location = $('#location-input').val()
-           let artist = $('#artist').val().replace((/[" "]/),"%20")
-           var eventFind = findEventNear(artist,location)
+      // $('body').on('submit', '#event_form', function(event){
+      //      event.preventDefault();
+      //      let location = $('#location-input').val()
+      //      let artist = $('#artist').val().replace((/[" "]/),"%20")
+      //      var eventFind = findEventNear(artist,location)
+      //
+      //   });//actions kicked off by second submit button
 
-        });//actions kicked off by second submit button
+        $('body').on('mouseenter', '.track-names', function(event){
+            // $(`.track-names`).hide()
+              $(`#${artist_store.artist[0].albums[0].id}`).show()
+          })
+        $('body').on('mouseleave', '.track-names', function(event){
+              $(`#${artist_store.artist[0].albums[0].id}`).hide()
+            })
+        $('body').on('mouseenter', '.track-names', function(event){
+            // $(`.track-names`).hide()
+              $(`#${artist_store.artist[0].albums[1].id}`).show()
+          })
+        $('body').on('mouseleave', '.track-names', function(event){
+              $(`#${artist_store.artist[0].albums[1].id}`).hide()
+            })
+
+        $('body').on('mouseenter', '.track-names', function(event){
+            // $(`.track-names`).hide()
+              $(`#${artist_store.artist[0].albums[2].id}`).show()
+          })
+        $('body').on('mouseleave', '.track-names', function(event){
+              $(`#${artist_store.artist[0].albums[2].id}`).hide()
+            })
+            // $('body').on('mouseenter', '.track-names', function(event){
+            //     // $(`.track-names`).hide()
+            //       $(`#${artist_store.artist[0].albums[3].id}`).show()
+            //   })
+            // $('body').on('mouseleave', '.track-names', function(event){
+            //       $(`#${artist_store.artist[0].albums[3].id}`).hide()
+            //     })
+            // $('body').on('mouseenter', '.track-names', function(event){
+            //     // $(`.track-names`).hide()
+            //       $(`#${artist_store.artist[0].albums[4].id}`).show()
+            //   })
+            // $('body').on('mouseleave', '.track-names', function(event){
+            //       $(`#${artist_store.artist[0].albums[4].id}`).hide()
+            //     })
+            //
+            // $('body').on('mouseenter', '.track-names', function(event){
+            //     // $(`.track-names`).hide()
+            //       $(`#${artist_store.artist[0].albums[5].id}`).show()
+            //   })
+            // $('body').on('mouseleave', '.track-names', function(event){
+            //       $(`#${artist_store.artist[0].albums[5].id}`).hide()
+            //     })
+
+
+      }

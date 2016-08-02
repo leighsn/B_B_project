@@ -76,10 +76,11 @@
                 <div class="col-sm-4 col-sm-4 col-sm-4">
                   <img src={{album.albumImage}}> <br>
                   <div class="album-tracks">
-                    <div type="hidden" id={{album.id}}></div>
+                    <div class="track-names" id={{album.id}}>
                     {{#each album.tracks as |track|}}
                       <li> {{track.name}} </li>
                     {{/each}}
+                  </div>
                   </div>
                 </div>
                 {{/each}}

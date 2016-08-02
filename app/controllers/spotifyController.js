@@ -108,40 +108,28 @@ function getAlbums(artistId){
   //       })
   //   }
   //
-  //   $(function() {
-  //     $('li').hide()
-  //     // var hoverElem = null;
-  //     //   $('*').hover(function() {hoverElem = this});
-  //
-  //     $('#album1 ul').mouseenter(function() {
-  //       $('#album1 ul li').show()
-  //     })
-  //     $('ul').mouseleave(function() {
-  //       $('li').hide()
-  //     })
-  //     $('#album2 ul').mouseenter(function() {
-  //       $('#album2 ul li').show()
-  //     })
-  //     $('ul').mouseleave(function() {
-  //       $('li').hide()
-  //     })
-  //       $('#album3 ul').mouseenter(function() {
-  //       $('#album3 ul li').show()
-  //     })
-  //     $('ul').mouseleave(function() {
-  //       $('li').hide()
-  //     })
-  //       $('#album4 ul').mouseenter(function() {
-  //       $('#album4 ul li').show()
-  //     })
-  //     $('ul').mouseleave(function() {
-  //       $('li').hide()
-  //     })
-  //       $('#album5 ul').mouseenter(function() {
-  //       $('#album5 ul li').show()
-  //     })
-  //     $('ul').mouseleave(function() {
-  //       $('li').hide()
-  //     })
-  //   })
-  // }
+
+
+  (function () {
+    if (artist_store.artist[0] !== undefined) {
+      $(`.track-names`).hide()
+      $(`#${artist_store.artist[0].albums[0].id}`).mouseenter(function() {
+        $(`#${artist_store.artist[0].albums[0].id}`).show()
+      })
+      $(`#${artist_store.artist[0].albums[0].id}`).mouseleave(function() {
+        $(`#${artist_store.artist[0].albums[0].id}`).hide()
+      })
+    }
+  }())
+
+    // $(function() {
+    //   if (artist_store.artist[0] !== undefined) {
+    //     $(`.artist-albums .album-tracks`).hide()
+    //     $(`.artist-albums .album-tracks #${artist_store.artist[0].albums[0].id}`).mouseenter(function() {
+    //       $(`.artist-albums .album-tracks #${artist_store.artist[0].albums[0].id}`).show()
+    //     })
+    //     $(`.artist-albums .album-tracks #${artist_store.artist[0].albums[0].id}`).mouseleave(function() {
+    //       $(`.artist-albums .album-tracks #${artist_store.artist[0].albums[0].id}`).hide()
+    //   })
+    // }
+    // })
