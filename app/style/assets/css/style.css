@@ -14,12 +14,21 @@
 
 /* Import fonts */
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+@import 'https://fonts.googleapis.com/css?family=Amatica+SC|Contrail+One|Damion|Homemade+Apple|Lemon|Lobster|Permanent+Marker|Sansita+One|Vast+Shadow';
 
 * {
 	margin: 0;
 	padding: 0px;
     font-family: 'Lato', sans-serif;
 }
+.h1_home {
+	font-family: 'Asphalts';
+	font-size: 800%;
+}
+.name {
+	font-family: 'Lato';
+}
+
 body {
 	background: #fff;
 	margin: 0;
@@ -27,14 +36,33 @@ body {
 }
 
 .intro-header {
-	height: 80%; /* Full PAge */
+	height: 100%; /* Full PAge */
 	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
 	padding-bottom: 50px;
-	color: #DCDCDC;
+	color: #00264d;
 	background: url(https://c1.staticflickr.com/5/4007/4548090992_bdc6ee04ae_o.jpg) no-repeat center center;
 	background-size: cover;
 	opacity: 60%;
 	text-align: center;
+}
+
+.artist-container {
+	height: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.article-container {
+	height: 100%;
+	padding-top: 80px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.artist-albums {
+	padding-top: 20px;
+	padding-bottom: 20px;
+
 }
 
 .content-section-b {
@@ -64,6 +92,60 @@ body {
 	font-size: 16px;
 	font-weight: 400;
 }
+
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;

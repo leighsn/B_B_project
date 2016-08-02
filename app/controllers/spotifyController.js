@@ -43,49 +43,50 @@ function getAlbums(artistId){
     }
 
 
-  // function compareArtists (){
-  //   // https://api.spotify.com/v1/artists/{id}/related-artists
-  //     $.ajax({
-  //       method: "GET",
-  //       url: `https://api.spotify.com/v1/artists/${spotify_store.artist_albums[0].id}/related-artists`
-  //     }).done(function(artists) {
-  //         related_artists = []
-  //           artists.artists.forEach((artist)=> {
-  //             related_artists.push({id: artist.id, name: artist.name, popularity: artist.popularity, followers: artist.followers.total})
-  //           })
-  //           drawChart(related_artists)
-  //       })
-  //   }
-  //
-  //     function drawChart(related_artists) {
-  //      // Create the data table.
-  //      // <a class="btn btn-embossed btn-info" href="#" role="button">View Article</a></p>
-  //       var data = new google.visualization.DataTable();
-  //       if (related_artists !== undefined) {
-  //         data.addColumn('string', 'Artist');
-  //         data.addColumn('number', 'Followers');
-  //         related_artists.forEach((artist)=> {
-  //           data.addRows([
-  //           [artist.name, artist.followers],
-  //           ]);
-  //         })
-  //       // Set chart options
-  //       var options = {'title':'Related Artists by popularity',
-  //                      'width':800,
-  //                      'height':700,
-  //                      'colors': ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']};
-  //
-  //       // Instantiate and draw our chart, passing in some options.
-  //       var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-  //       chart.draw(data, options);
-  //
-  //       google.visualization.events.addListener(chart, 'select', selectHandler);
-  //
-  //         function selectHandler(e) {
-  //           chart.setSelection(chart, kickOff())
-  //         }
-  //       }
-  //     }
+  function compareArtists (){
+    // https://api.spotify.com/v1/artists/{id}/related-artists
+      $.ajax({
+        method: "GET",
+        url: `https://api.spotify.com/v1/artists/${artist_store.artist[0].id}/related-artists`
+      }).done(function(artists) {
+          related_artists = []
+            artists.artists.forEach((artist)=> {
+              related_artists.push({id: artist.id, name: artist.name, popularity: artist.popularity, followers: artist.followers.total})
+            })
+            drawChart(related_artists)
+        })
+    }
+  
+      function drawChart(related_artists) {
+       // Create the data table.
+       // <a class="btn btn-embossed btn-info" href="#" role="button">View Article</a></p>
+        var data = new google.visualization.DataTable();
+        if (related_artists !== undefined) {
+          data.addColumn('string', 'Artist');
+          data.addColumn('number', 'Followers');
+          related_artists.forEach((artist)=> {
+            data.addRows([
+            [artist.name, artist.followers],
+            ]);
+          })
+        // Set chart options
+        var options = {'title':'Related Artists by popularity',
+                       'width':800,
+                       'height':700,
+                       'colors': ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'],
+                        'legend': 'none'};
+  
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+  
+        // google.visualization.events.addListener(chart, 'select', selectHandler);
+  
+        //   function selectHandler(e) {
+        //     chart.setSelection(chart, kickOff())
+        //   }
+        }
+      }
   //
   //
   //
@@ -110,17 +111,17 @@ function getAlbums(artistId){
   //
 
 
-  (function () {
-    if (artist_store.artist[0] !== undefined) {
-      $(`.track-names`).hide()
-      $(`#${artist_store.artist[0].albums[0].id}`).mouseenter(function() {
-        $(`#${artist_store.artist[0].albums[0].id}`).show()
-      })
-      $(`#${artist_store.artist[0].albums[0].id}`).mouseleave(function() {
-        $(`#${artist_store.artist[0].albums[0].id}`).hide()
-      })
-    }
-  }())
+  // (function () {
+  //   if (artist_store.artist[0] !== undefined) {
+  //     $(`.track-names`).hide()
+  //     $(`#${artist_store.artist[0].albums[0].id}`).mouseenter(function() {
+  //       $(`#${artist_store.artist[0].albums[0].id}`).show()
+  //     })
+  //     $(`#${artist_store.artist[0].albums[0].id}`).mouseleave(function() {
+  //       $(`#${artist_store.artist[0].albums[0].id}`).hide()
+  //     })
+  //   }
+  // }())
 
     // $(function() {
     //   if (artist_store.artist[0] !== undefined) {

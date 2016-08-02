@@ -1,11 +1,5 @@
 // kick off function on click
-
-
 $(document).ready(() => {
-
-// 247c8522b93a971f3eaa641d07aa8dc79210edc6
-// 6f4eef2c65b21ff642aa80ea898edd1c27c44983function kickItOff() {
-
   $('#artist_form').on('submit',function(event){
     let artist = $('#artist').val()
     $('#articles').empty()
@@ -18,7 +12,6 @@ $(document).ready(() => {
     $('#event_form').append(`<h3 id="artist_shows">${artist} Concerts by City:</h3><input id="location-input" type="text" ><input id="location-submit" type="submit">`)
     store.articles = []
     artist_store.artist = []
-    $(`.track-names`).hide()
     event.preventDefault()
     var spotify = spotifyGetArtist(artist)
     articleAdapter(artist).then(function appendData() {
@@ -27,7 +20,7 @@ $(document).ready(() => {
         renderAlbums()
         // hideMe()
         // appendAlbums()
-        // compareArtists()
+        compareArtists()
       })//return results from NYT API and append to HTML
   })//actions kicked off by first submit button
 
@@ -40,7 +33,7 @@ $(document).ready(() => {
       renderConcerts()
      })
   });//actions kicked off by second submit button
-})
+
 
 
 
@@ -75,48 +68,34 @@ $(document).ready(() => {
   function renderAlbums() {
     var albumTemplate = $(`#album-template`).html();
     var template = Handlebars.compile(albumTemplate);
-    var htmlString = template({albums: artist_store.artist[0].albums})//, tracks: artist_store.artist[0].albums.tracks.name})
+    var htmlString = template({albums: artist_store.artist[0].albums})
     // var trackString = template({tracks: artist_store.artist[0].albums.tracks.name})
 
     $('.artist-albums').empty();
     $('.artist-albums').append(htmlString);
-    // $('.album-tracks').empty();
-    // $('.album-tracks').append(trackString);
-
-    // albumStore.forEach((album)=> {
-    //   var htmlString = template({albums: album.albumImage})
-    //   $('.artist-albums').append(htmlString);
-    // })
-
-
-  // function renderTracks() {
-  //   var albumTemplate = $(`#album-template`).html();
-  //   var template = Handlebars.compile(albumTemplate);
-  //   var htmlString = template({tracks: artist_store.artist[0].albums.tracks.name})
-  //   $('.album-tracks').append(htmlString);
-  // }
-
-    $('body').on('mouseenter', '.track-names', function(event){
+    $('.track-names').hide()
+    $('.col-sm-2').on('mouseenter', function(event){
         // $(`.track-names`).hide()
-          $(`#${artist_store.artist[0].albums[0].id}`).show()
+          $('.track-names').show()
       })
-    $('body').on('mouseleave', '.track-names', function(event){
-          $(`#${artist_store.artist[0].albums[0].id}`).hide()
+    $('.col-sm-2').on('mouseleave', function(event){
+          $('.track-names').hide()
         })
-    $('body').on('mouseenter', '.track-names', function(event){
-        // $(`.track-names`).hide()
-          $(`#${artist_store.artist[0].albums[1].id}`).show()
-      })
-    $('body').on('mouseleave', '.track-names', function(event){
-          $(`#${artist_store.artist[0].albums[1].id}`).hide()
-        })
-
-    $('body').on('mouseenter', '.track-names', function(event){
-        // $(`.track-names`).hide()
-          $(`#${artist_store.artist[0].albums[2].id}`).show()
-      })
-    $('body').on('mouseleave', '.track-names', function(event){
-          $(`#${artist_store.artist[0].albums[2].id}`).hide()
-        })
-  }//return results from APIs and and appends to HTML
-
+        var modal = $('#myModal')
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = $('#myImg');
+        var modalImg = $('#img01');
+        img.onclick = function(){
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            modalImg.alt = this.alt;
+            captionText.innerHTML = this.alt;
+        }
+        // Get the <span> element that closes the modal
+        var span = $('.close')[0];
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+      }
+  })//return results from APIs and and appends to HTML

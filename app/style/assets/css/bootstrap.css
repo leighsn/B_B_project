@@ -10,6 +10,41 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+
+@font-face {
+	font-family: 'Lobster', cursive;
+}
+@font-face {
+  font-family: 'Amatica SC', cursive;
+}
+@font-face {
+  font-family: 'Permanent Marker', cursive;
+}
+@font-face {
+  font-family: 'Damion', cursive;
+}
+@font-face {
+  font-family: 'Homemade Apple', cursive;
+}
+@font-face {
+  font-family: 'Sansita One', cursive;
+}
+@font-face {
+  font-family: 'Permanent Marker', cursive;
+}
+@font-face {
+  font-family: 'Contrail One', cursive;
+}
+@font-face {
+  font-family: 'Lemon', cursive;
+}
+@font-face {
+  font-family: 'Vast Shadow', cursive;
+}
+
+
+
+
 body {
   margin: 0;
 }
@@ -271,6 +306,27 @@ th {
   src: url('../fonts/glyphicons-halflings-regular.eot');
   src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+@font-face {
+  font-family: 'Olympic Branding';
+
+  src: url('../fonts/olympic-branding.ttf');
+}
+@font-face {
+  font-family: 'Asphalts';
+
+  src: url('../fonts/asphalts.otf');
+}
+@font-face {
+  font-family: 'Rising';
+
+  src: url('../fonts/risingbrush.otf');
+}
+@font-face {
+  font-family: 'Manifesto';
+
+  src: url('../fonts/manifesto.ttf');
+}
+
 .glyphicon {
   position: relative;
   top: 1px;
