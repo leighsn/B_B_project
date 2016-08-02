@@ -14,12 +14,21 @@
 
 /* Import fonts */
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+@import 'https://fonts.googleapis.com/css?family=Amatica+SC|Contrail+One|Damion|Homemade+Apple|Lemon|Lobster|Permanent+Marker|Sansita+One|Vast+Shadow';
 
 * {
 	margin: 0;
 	padding: 0px;
     font-family: 'Lato', sans-serif;
 }
+.h1_home {
+	font-family: 'Asphalts';
+	font-size: 800%;
+}
+.name {
+	font-family: 'Lato';
+}
+
 body {
 	background: #fff;
 	margin: 0;
@@ -30,11 +39,30 @@ body {
 	height: 100%; /* Full PAge */
 	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
 	padding-bottom: 50px;
-	color: #DCDCDC;
+	color: #00264d;
 	background: url(https://c1.staticflickr.com/5/4007/4548090992_bdc6ee04ae_o.jpg) no-repeat center center;
 	background-size: cover;
 	opacity: 60%;
 	text-align: center;
+}
+
+.artist-container {
+	height: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.article-container {
+	height: 100%;
+	padding-top: 80px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.artist-albums {
+	padding-top: 20px;
+	padding-bottom: 20px;
+
 }
 
 .content-section-b {
