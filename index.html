@@ -96,6 +96,27 @@
  <!-- concert finder form --> 
   <form id = 'event_form'>
   </form>
+  <!-- event handlebars -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+          <div class="row">
+            <div class="article-row">
+              <script id="concert-template" type="text/x-handlebars-template">
+              {{#each articles as |article|}}
+              <div class="col-sm-6 col-sm-6">
+                <h3>{{article.headline}}</h3>
+                <p>{{article.snippet}}</p>
+                <a href={{article.web_url}}>Link to Article</a>
+              </div>
+              {{/each}}
+              </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of event handlebars -->
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
