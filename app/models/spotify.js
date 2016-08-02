@@ -32,9 +32,15 @@ class Album {
 }
 
 class Track {
-  constructor(name, albumId){
-    this.name = name,
-    this.albumId = albumId
-    artist_store.artist[0].albums[0].tracks.push(this)
-  }
+    constructor(name, albumId){
+      this.name = name,
+      this.albumId = albumId
+      var album = findAlbum(albumId)
+      album.tracks.push(this)
+    }
+}
+
+function findAlbum(albumId) {
+  var albums = artist_store.artist[0].albums
+  return albums.find((album) => album.id === albumId)
 }

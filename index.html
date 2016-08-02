@@ -19,7 +19,7 @@
 </head>
   <body>
 
-SUBMIT BUTTON
+<!-- SUBMIT BUTTON -->
     <div class="intro-header">
 		<div class="col-xs-12 text-center abcen wow fadeIn">
       <div class="col-xs-12 text-center abcen1">
@@ -34,53 +34,91 @@ SUBMIT BUTTON
         </form>
 			</div>
 		</div>
-END SUBMIT BUTTON
+<!-- END SUBMIT BUTTON -->
 
-ARTIST IMAGE
-  	<div id="artist_image" class="content-section-b" style="border-top: 0">
+<!-- ARTIST IMAGE -->
+  	<!-- <div id="artist_image" class="content-section-b" style="border-top: 0">
   		<div class="container">
-        <div class="row"> -->
+        <div class="row">
   				<div class="col-sm-6 text-center">
             <div id="image" ></div>
             <div class="artist_name"></div>
   				</div>
   				<div class="col-sm-6 text-center">
-            <
+
   				   <div class="albums">
   				</div>
         </div>
   		</div>
   	</div>
 
-    <br>
+    <br> -->
+<!-- END ARTIST IMAGE -->
 
-
-
-
-
-END ARTIST IMAGE
-
-ARTICLE HANDLEBAR
-       <div class="container">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <br>
+      <div class="artist-name"></div>
+      <br>
         <div class="row">
-          <div class="col-sm-12">
-              <div class="row">
-                <div class="article-row">
-                  <script id="article-template" type="text/x-handlebars-template">
-                  {{#each articles as |article|}}
-                  <div class="col-sm-6 col-sm-6">
-                    <h3>{{article.headline}}</h3>
-                    <p>{{article.snippet}}</p>
-                    <a href={{article.web_url}}>Link to Article</a>
-                  </div>
-                  {{/each}}
-                  </script>
+            <div class="artist-image">
+              <script id="artist-template" type="text/x-handlebars-template">
+                <div class="col-sm-6 text-center">
+                  <img src={{artistImage}} height="300" width="400">
               </div>
+            </script>
+          </div>
+          <div class="col-sm-6 text-center">
+            <div class="artist-albums">
+              <script id="album-template" type="text/x-handlebars-template">
+                {{#each albums as |album|}}
+                <div class="col-sm-4 col-sm-4 col-sm-4">
+                  <img src={{album.albumImage}}> <br>
+                  <div class="album-tracks">
+                    <div class="track-names" id={{album.id}}>
+                    {{#each album.tracks as |track|}}
+                      <li> {{track.name}} </li>
+                    {{/each}}
+                  </div>
+                  </div>
+                </div>
+                {{/each}}
+              </script>
             </div>
           </div>
         </div>
       </div>
-END ARTICLE HANDLEBAR
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- ARTICLE HANDLEBAR -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="row">
+          <div class="article-row">
+            <script id="article-template" type="text/x-handlebars-template">
+            {{#each articles as |article|}}
+            <div class="col-sm-6 col-sm-6">
+              <h3>{{article.headline}}</h3>
+              <p>{{article.snippet}}</p>
+              <a href={{article.web_url}}>Link to Article</a>
+            </div>
+            {{/each}}
+            </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END ARTICLE HANDLEBAR -->
 
 
 

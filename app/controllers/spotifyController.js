@@ -3,12 +3,12 @@ function spotifyGetArtist(artist) {
     method: "GET",
     url: `https://api.spotify.com/v1/search?q=${artist}&type=artist`,
   }).done(function(artist) {
-      var artistId = artist.artists.items[0].id
-      var artistResult = artist.artists.items[0]
-      var artist = new Artist(artistResult.name, artistResult.images[1].url, artistId, artistResult.popularity, artistResult.followers.total)
+    var artistId = artist.artists.items[0].id
+    var artistResult = artist.artists.items[0]
+    var artist = new Artist(artistResult.name, artistResult.images[1].url, artistId, artistResult.popularity, artistResult.followers.total)
 
-      getAlbums(artistId)
-      })
+    getAlbums(artistId)
+    })
 }
 
 function getAlbums(artistId){
@@ -16,11 +16,7 @@ function getAlbums(artistId){
     method: "GET",
     url: `https://api.spotify.com/v1/artists/${artistId}/albums`,
   }).done(function(albums) {
-    // map the objects into a new object
-    // if the album_type === album, add id and name into an object
-    // pass the name and album id to the getTracks function
     var albums = albums.items
-
     albums.forEach((album)=> {
       if (album.album_type === 'album') {
       new Album(album.id, album.name, album.images[2].url, artistId)
@@ -112,40 +108,28 @@ function getAlbums(artistId){
   //       })
   //   }
   //
-  //   $(function() {
-  //     $('li').hide()
-  //     // var hoverElem = null;
-  //     //   $('*').hover(function() {hoverElem = this});
-  //
-  //     $('#album1 ul').mouseenter(function() {
-  //       $('#album1 ul li').show()
-  //     })
-  //     $('ul').mouseleave(function() {
-  //       $('li').hide()
-  //     })
-  //     $('#album2 ul').mouseenter(function() {
-  //       $('#album2 ul li').show()
-  //     })
-  //     $('ul').mouseleave(function() {
-  //       $('li').hide()
-  //     })
-  //       $('#album3 ul').mouseenter(function() {
-  //       $('#album3 ul li').show()
-  //     })
-  //     $('ul').mouseleave(function() {
-  //       $('li').hide()
-  //     })
-  //       $('#album4 ul').mouseenter(function() {
-  //       $('#album4 ul li').show()
-  //     })
-  //     $('ul').mouseleave(function() {
-  //       $('li').hide()
-  //     })
-  //       $('#album5 ul').mouseenter(function() {
-  //       $('#album5 ul li').show()
-  //     })
-  //     $('ul').mouseleave(function() {
-  //       $('li').hide()
-  //     })
-  //   })
-  // }
+
+
+  (function () {
+    if (artist_store.artist[0] !== undefined) {
+      $(`.track-names`).hide()
+      $(`#${artist_store.artist[0].albums[0].id}`).mouseenter(function() {
+        $(`#${artist_store.artist[0].albums[0].id}`).show()
+      })
+      $(`#${artist_store.artist[0].albums[0].id}`).mouseleave(function() {
+        $(`#${artist_store.artist[0].albums[0].id}`).hide()
+      })
+    }
+  }())
+
+    // $(function() {
+    //   if (artist_store.artist[0] !== undefined) {
+    //     $(`.artist-albums .album-tracks`).hide()
+    //     $(`.artist-albums .album-tracks #${artist_store.artist[0].albums[0].id}`).mouseenter(function() {
+    //       $(`.artist-albums .album-tracks #${artist_store.artist[0].albums[0].id}`).show()
+    //     })
+    //     $(`.artist-albums .album-tracks #${artist_store.artist[0].albums[0].id}`).mouseleave(function() {
+    //       $(`.artist-albums .album-tracks #${artist_store.artist[0].albums[0].id}`).hide()
+    //   })
+    // }
+    // })
