@@ -35,10 +35,13 @@ $(document).ready(() => {
      event.preventDefault();
      let location = $('#location-input').val()
      let artist = $('#artist').val().replace((/[" "]/),"%20")
-     var eventFind = findEventNear(artist,location)
-
+     findEventNear(artist,location).then(function appendConcerts() {
+      debugger
+      renderConcerts()
+     })
   });//actions kicked off by second submit button
 })
+
 
 
 
@@ -58,6 +61,15 @@ $(document).ready(() => {
     $('.artist-name').append(`<h3>${artist_store.artist[0].name}</h3>`);
     $('.artist-image').empty();
     $('.artist-image').append(htmlString);
+  }
+
+  function renderConcerts(){
+    debugger
+    var concertTemplate = $(`#concert-template`).html();
+    var template = Handlebars.compile(concertTemplate);
+    var htmlString = template({concerts: concert_store.concerts})
+    $('.concert-row').empty();
+    $('.concert-row').append(htmlString);
   }
 
   function renderAlbums() {
@@ -106,27 +118,5 @@ $(document).ready(() => {
     $('body').on('mouseleave', '.track-names', function(event){
           $(`#${artist_store.artist[0].albums[2].id}`).hide()
         })
-        // $('body').on('mouseenter', '.track-names', function(event){
-        //     // $(`.track-names`).hide()
-        //       $(`#${artist_store.artist[0].albums[3].id}`).show()
-        //   })
-        // $('body').on('mouseleave', '.track-names', function(event){
-        //       $(`#${artist_store.artist[0].albums[3].id}`).hide()
-        //     })
-        // $('body').on('mouseenter', '.track-names', function(event){
-        //     // $(`.track-names`).hide()
-        //       $(`#${artist_store.artist[0].albums[4].id}`).show()
-        //   })
-        // $('body').on('mouseleave', '.track-names', function(event){
-        //       $(`#${artist_store.artist[0].albums[4].id}`).hide()
-        //     })
-        //
-        // $('body').on('mouseenter', '.track-names', function(event){
-        //     // $(`.track-names`).hide()
-        //       $(`#${artist_store.artist[0].albums[5].id}`).show()
-        //   })
-        // $('body').on('mouseleave', '.track-names', function(event){
-        //       $(`#${artist_store.artist[0].albums[5].id}`).hide()
-        //     })
   }//return results from APIs and and appends to HTML
 

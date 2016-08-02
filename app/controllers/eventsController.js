@@ -5,14 +5,13 @@ const app_id = 'eman14'
 function findEventNear(artist,location) {
   var formattedLocation = locationFormatter(location) 
   var myUri = rootUri + artist + '/events/search.json?api_version=2.0&app_id='+app_id+'&location='+formattedLocation+'&radius=25'
-  debugger
-  $.ajax({
+  return $.ajax({
     method: "GET",
     url: myUri,
     crossDomain: true,
     dataType: 'jsonp',
-  }).done(function(result){
-      if (!result.length){
+  }).done(function(results){
+      if (!results.length){
       return "There are no concerts in the area. Sorry!"
     } 
     else{

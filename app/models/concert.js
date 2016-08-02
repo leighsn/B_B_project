@@ -1,4 +1,4 @@
-const store = {
+const concert_store = {
   concerts: []
 }
 
@@ -9,7 +9,7 @@ class Concert {
     this.dateTime = dateTime
     this.location = location
     this.ticket_url = ticket_url
-    store.concerts.push(this)
+    concert_store.concerts.push(this)
   }
 
 }
