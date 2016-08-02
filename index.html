@@ -14,14 +14,15 @@
     <script src="app/controllers/nytimesController.js"></script>
     <script src="app/controllers/spotifyController.js"></script>
     <script src="app/controllers/eventsController.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
   </head>
   <body>
   <!-- SUBMIT BUTTON -->
+
   <div class="intro-header">
-    <div class="col-xs-12 text-center abcen wow fadeIn">
-      <div class="col-xs-12 text-center abcen1">
+    <div class="col-sm-12 text-center abcen wow fadeIn">
+      <div class="col-sm-12 text-center">
       	<div class="h1_home wow fadeIn" data-wow-delay="0.4s">Get Your Newsic</h1>
       </div>
       <form id = 'artist_form'>
@@ -37,20 +38,14 @@
 <br>
   <div class="artist-container">
       <div class="col-sm-12 text-center">
-        <br>
         <div class="artist-name"></div>
-        <br>
           <div class="row">
               <div class="artist-image">
                 <script id="artist-template" type="text/x-handlebars-template">
                   <div class="col-sm-12 text-center">
-
-                    <img src={{artistImage}} height="500" width="600">
-
                     <div class="clear-image">
-                      <img src={{artistImage}} height="300" width="400">
+                      <img src={{artistImage}} height="400" width="600">
                     </div>
-
                 </div>
               </script>
             </div>
@@ -62,14 +57,9 @@
                 <script id="album-template" type="text/x-handlebars-template">
                   {{#each albums as |album|}}
                   <div class="col-sm-2">
-
-                      <img id="myImg" src={{album.albumImage}} alt={{album.name}} width="80" height="80">
-
-                    <!-- Trigger the Modal -->
                       <div class="clear-albums">
                         <img id="myImg" src={{album.albumImage}} alt={{album.name}} width="80" height="80">
                       </div>
-
                       <div id="myModal" class="modal">
                         <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
                         <img class="modal-content" id="img01">
@@ -124,7 +114,7 @@
   <!-- event handlebars -->
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-12 text-center">
           <div class="row">
             <div class="concert-row">
               <script id="concert-template" type="text/x-handlebars-template">
@@ -149,7 +139,7 @@
     </div>
   </div>
   <!-- end of event handlebars -->
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 
   </body>
 </html>

@@ -19,7 +19,7 @@ $(document).ready(() => {
         renderArtist()
         renderAlbums()
         compareArtists()
-        window.scrollTo(0, 775);
+        window.scrollTo(40, 720);
       })//return results from NYT API and append to HTML
 
   })//actions kicked off by first submit button

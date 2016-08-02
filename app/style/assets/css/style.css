@@ -37,27 +37,37 @@ body {
 	margin: 0;
 	color: #5a5a5a;
 }
-.col-sm-12 {
-	margin: 30px;
-	padding-left: 30px;
-}
-.intro-header {
-	height: 100%; /* Full PAge */
-	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-	padding-bottom: 50px;
-	color: #00264d;
-	background: url(https://c1.staticflickr.com/5/4007/4548090992_bdc6ee04ae_o.jpg) no-repeat center center;
-	background-size: cover;
-	opacity: 60%;
+.artist-container {
+	width: 100%;
 	text-align: center;
 }
 
-.artist-container {
-	height: 100%;
-	padding-top: 20px;
-	padding-bottom: 20px;
+.col-sm-12 {
+	margin: 30px;
+
+
+}
+
+#event_form {
+	width: 100%;
 	text-align: center;
 }
+.intro-header {
+	height: 100%;
+	width: 100%; /* Full PAge */
+	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+	padding-bottom: 50px;
+	color: #333333;
+	background: url(http://wallpaperstock.net/wallpapers/thumbs1/8766wide.jpg) no-repeat center center;
+	background-size: cover;
+	/*position: fixed;*/
+	top: 0;
+	left: 0;
+	opacity: 40%;
+	text-align: center;
+}
+
+
 
 .article-container {
 	height: 100%;
