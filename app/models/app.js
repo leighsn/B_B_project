@@ -17,12 +17,13 @@ $(document).ready(() => {
       spotify_store.artist_albums = []
       event.preventDefault()
       var spotify = spotifyGetArtist(artist)
-      var article = articleAdapter(artist).then(function appendData() {
+      articleAdapter(artist).then(function appendData() {
           renderArticles()
           appendAlbums()
         })
-      })
       
+      })
+
       function renderArticles(){
           var articleTemplate = $('#article-template').html();
           var template = Handlebars.compile(articleTemplate);
@@ -39,4 +40,4 @@ $(document).ready(() => {
 
        });//actions kicked off by second submit button
 
-})//return results from NYT API and append to HTML
+})//return results from APIs and and appends to HTML

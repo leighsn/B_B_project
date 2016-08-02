@@ -2,8 +2,8 @@ const store = {
   concerts: []
 }
 
-
 class Concert {
+  
   constructor(title, dateTime, location, ticket_url) {
     this.title = title
     this.dateTime = dateTime
@@ -11,5 +11,5 @@ class Concert {
     this.ticket_url = ticket_url
     store.concerts.push(this)
   }
-  
+
 }

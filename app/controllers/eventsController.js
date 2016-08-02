@@ -11,7 +11,6 @@ function findEventNear(artist,location) {
     url: myUri,
     crossDomain: true,
     dataType: 'jsonp',
-    // jsonpCallback: "logResults"
   }).done(function(result){
       if (!result.length){
       return "There are no concerts in the area. Sorry!"
