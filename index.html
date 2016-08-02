@@ -1,130 +1,101 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Artists and Articles</title>
-  <link rel="stylesheet" href="app/style/assets/css/style.css">
-  <link rel="stylesheet" href="app/style/assets/css/bootstrap.css">
-  <script src="app/style/main.css"></script>
-  <script src="lib/jquery-1.11.3.js"></script>
-  <script src="lib/handlebars.js"></script>
-  <script src="app/models/app.js"></script>
-  <script src="app/models/nytimes.js"></script>
-  <script src="app/models/spotify.js"></script>
-  <script src="app/controllers/nytimesController.js"></script>
-  <script src="app/controllers/spotifyController.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Artists and Articles</title>
+    <link rel="stylesheet" href="app/style/assets/css/style.css">
+    <link rel="stylesheet" href="app/style/assets/css/bootstrap.css">
+    <script src="app/style/main.css"></script>
+    <script src="lib/jquery-1.11.3.js"></script>
+    <script src="lib/handlebars.js"></script>
+    <script src="app/models/app.js"></script>
+    <script src="app/models/nytimes.js"></script>
+    <script src="app/models/spotify.js"></script>
+    <script src="app/models/concert.js"></script>
+    <script src="app/controllers/nytimesController.js"></script>
+    <script src="app/controllers/spotifyController.js"></script>
+    <script src="app/controllers/eventsController.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  </head>
   <body>
-
-<!-- SUBMIT BUTTON -->
-    <div class="intro-header">
-		<div class="col-xs-12 text-center abcen wow fadeIn">
+  <!-- SUBMIT BUTTON -->
+  <div class="intro-header">
+    <div class="col-xs-12 text-center abcen wow fadeIn">
       <div class="col-xs-12 text-center abcen1">
-  			<h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">Artists and Articles</h1>
-  		</div>
-        <form id = 'artist_form'>
-          <div class='name'>
-           <label for="name">Artist Name</label>
-           <input id='artist' class='input input_name' type="text" >
-           <input id="submit-button" type="submit">
-          </div>
-        </form>
-			</div>
-		</div>
-<!-- END SUBMIT BUTTON -->
-
-<!-- ARTIST IMAGE -->
-  	<!-- <div id="artist_image" class="content-section-b" style="border-top: 0">
-  		<div class="container">
-        <div class="row">
-  				<div class="col-sm-6 text-center">
-            <div id="image" ></div>
-            <div class="artist_name"></div>
-  				</div>
-  				<div class="col-sm-6 text-center">
-
-  				   <div class="albums">
-  				</div>
+      	<h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">Artists and Articles</h1>
+      </div>
+      <form id = 'artist_form'>
+        <div class='name'>
+         <label for="name">Artist Name</label>
+         <input id='artist' class='input input_name' type="text" >
+         <input id="submit-button" type="submit">
         </div>
-  		</div>
-  	</div>
-
-    <br> -->
-<!-- END ARTIST IMAGE -->
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 text-center">
-      <br>
-      <div class="artist-name"></div>
-      <br>
-        <div class="row">
-            <div class="artist-image">
-              <script id="artist-template" type="text/x-handlebars-template">
-                <div class="col-sm-6 text-center">
-                  <img src={{artistImage}} height="300" width="400">
-              </div>
-            </script>
-          </div>
-          <div class="col-sm-6 text-center">
-            <div class="artist-albums">
-              <script id="album-template" type="text/x-handlebars-template">
-                {{#each albums as |album|}}
-                <div class="col-sm-4 col-sm-4 col-sm-4">
-                  <img src={{album.albumImage}}> <br>
-                  <div class="album-tracks">
-                    <div class="track-names" id={{album.id}}>
-                    {{#each album.tracks as |track|}}
-                      <li> {{track.name}} </li>
-                    {{/each}}
-                  </div>
-                  </div>
+      </form>
+    </div>
+  </div>
+<br> 
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <br>
+        <div class="artist-name"></div>
+        <br>
+          <div class="row">
+              <div class="artist-image">
+                <script id="artist-template" type="text/x-handlebars-template">
+                  <div class="col-sm-6 text-center">
+                    <img src={{artistImage}} height="300" width="400">
                 </div>
-                {{/each}}
               </script>
             </div>
+            <div class="col-sm-6 text-center">
+              <div class="artist-albums">
+                <script id="album-template" type="text/x-handlebars-template">
+                  {{#each albums as |album|}}
+                  <div class="col-sm-4 col-sm-4 col-sm-4">
+                    <img src={{album.albumImage}}> <br>
+                    <div class="album-tracks">
+                      <div class="track-names" id={{album.id}}>
+                      {{#each album.tracks as |track|}}
+                        <li> {{track.name}} </li>
+                      {{/each}}
+                    </div>
+                    </div>
+                  </div>
+                  {{/each}}
+                </script>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      </div>
     </div>
-  </div>
-</div>
-
-
-
-
-<!-- ARTICLE HANDLEBAR -->
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-        <div class="row">
-          <div class="article-row">
-            <script id="article-template" type="text/x-handlebars-template">
-            {{#each articles as |article|}}
-            <div class="col-sm-6 col-sm-6">
-              <h3>{{article.headline}}</h3>
-              <p>{{article.snippet}}</p>
-              <a href={{article.web_url}}>Link to Article</a>
-            </div>
-            {{/each}}
-            </script>
+    <br>
+  <!-- ARTICLE HANDLEBAR -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+          <div class="row">
+            <div class="article-row">
+              <script id="article-template" type="text/x-handlebars-template">
+              {{#each articles as |article|}}
+              <div class="col-sm-6 col-sm-6">
+                <h3>{{article.headline}}</h3>
+                <p>{{article.snippet}}</p>
+                <a href={{article.web_url}}>Link to Article</a>
+              </div>
+              {{/each}}
+              </script>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 <!-- END ARTICLE HANDLEBAR -->
 
-
-
-
-
-
+ <!-- concert finder form --> 
+  <form id = 'event_form'>
+  </form>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
