@@ -22,8 +22,10 @@ $(document).ready(() => {
       var spotify = spotifyGetArtist(artist)
       var article = articleAdapter(artist).then(function appendData() {
           renderArticles()
-          appendAlbums()
-          compareArtists()
+          renderArtist()
+          renderAlbums()
+          // appendAlbums()
+          // compareArtists()
         })//return results from NYT API and append to HTML
     })//actions kicked off by first submit button
 
@@ -36,6 +38,39 @@ $(document).ready(() => {
           $('.article-row').empty();
           $('.article-row').append(htmlString);
         }
+
+      function renderArtist() {
+        var artistTemplate = $(`#artist-template`).html();
+        var template = Handlebars.compile(artistTemplate);
+        var htmlString = template({artistImage: artist_store.artist[0].artistImage})
+        $('.artist-name').empty();
+        $('.artist-name').append(`<h3>${artist_store.artist[0].name}</h3>`);
+        $('.artist-image').empty();
+        $('.artist-image').append(htmlString);
+      }
+      function renderAlbums() {
+        var albumTemplate = $(`#album-template`).html();
+        var template = Handlebars.compile(albumTemplate);
+        var htmlString = template({albums: artist_store.artist[0].albums})//, tracks: artist_store.artist[0].albums.tracks.name})
+        // var trackString = template({tracks: artist_store.artist[0].albums.tracks.name})
+
+        $('.artist-albums').empty();
+        $('.artist-albums').append(htmlString);
+        // $('.album-tracks').empty();
+        // $('.album-tracks').append(trackString);
+
+        // albumStore.forEach((album)=> {
+        //   var htmlString = template({albums: album.albumImage})
+        //   $('.artist-albums').append(htmlString);
+        // })
+      }
+
+      // function renderTracks() {
+      //   var albumTemplate = $(`#album-template`).html();
+      //   var template = Handlebars.compile(albumTemplate);
+      //   var htmlString = template({tracks: artist_store.artist[0].albums.tracks.name})
+      //   $('.album-tracks').append(htmlString);
+      // }
 
 
       $('body').on('submit', '#event_form', function(event){

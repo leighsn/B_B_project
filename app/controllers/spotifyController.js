@@ -3,12 +3,12 @@ function spotifyGetArtist(artist) {
     method: "GET",
     url: `https://api.spotify.com/v1/search?q=${artist}&type=artist`,
   }).done(function(artist) {
-      var artistId = artist.artists.items[0].id
-      var artistResult = artist.artists.items[0]
-      var artist = new Artist(artistResult.name, artistResult.images[1].url, artistId, artistResult.popularity, artistResult.followers.total)
+    var artistId = artist.artists.items[0].id
+    var artistResult = artist.artists.items[0]
+    var artist = new Artist(artistResult.name, artistResult.images[1].url, artistId, artistResult.popularity, artistResult.followers.total)
 
-      getAlbums(artistId)
-      })
+    getAlbums(artistId)
+    })
 }
 
 function getAlbums(artistId){
@@ -16,11 +16,7 @@ function getAlbums(artistId){
     method: "GET",
     url: `https://api.spotify.com/v1/artists/${artistId}/albums`,
   }).done(function(albums) {
-    // map the objects into a new object
-    // if the album_type === album, add id and name into an object
-    // pass the name and album id to the getTracks function
     var albums = albums.items
-
     albums.forEach((album)=> {
       if (album.album_type === 'album') {
       new Album(album.id, album.name, album.images[2].url, artistId)
