@@ -36,7 +36,6 @@
 </div>
 <br>
   <div class="artist-container">
-    <div class="row">
       <div class="col-sm-12 text-center">
         <br>
         <div class="artist-name"></div>
@@ -45,36 +44,30 @@
               <div class="artist-image">
                 <script id="artist-template" type="text/x-handlebars-template">
                   <div class="col-sm-12 text-center">
-                    <img src={{artistImage}} height="300" width="400">
+                    <img src={{artistImage}} height="500" width="600">
                 </div>
               </script>
             </div>
           </div>
           <br>
-          <div class="row">
             <div class="col-sm-12 text-center">
               <div class="artist-albums">
+                <div class="row">
                 <script id="album-template" type="text/x-handlebars-template">
                   {{#each albums as |album|}}
                   <div class="col-sm-2">
-                    <!-- Trigger the Modal -->
                       <img id="myImg" src={{album.albumImage}} alt={{album.name}} width="80" height="80">
-                      <!-- The Modal -->
                       <div id="myModal" class="modal">
-                        <!-- The Close Button -->
                         <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
-                        <!-- Modal Content (The Image) -->
                         <img class="modal-content" id="img01">
-                        <!-- Modal Caption (Image Text) -->
                         <div id="caption"></div>
                       </div>
-                    <!-- <img src={{album.albumImage}}> <br> -->
                     <div class="album-tracks">
                       <div class="track-names" id={{album.id}}>
-                      {{#each album.tracks as |track|}}
-                        <li> {{track.name}} </li>
-                      {{/each}}
-                    </div>
+                        {{#each album.tracks as |track|}}
+                          <li> {{track.name}} </li>
+                        {{/each}}
+                      </div>
                     </div>
                   </div>
                   {{/each}}
@@ -83,7 +76,6 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
     <br>
   <!-- ARTICLE HANDLEBAR -->
@@ -109,7 +101,7 @@
 <!-- END ARTICLE HANDLEBAR -->
 
 
- <!-- concert finder form --> 
+ <!-- concert finder form -->
   <form id = 'event_form'>
   </form>
   <!-- event handlebars -->
