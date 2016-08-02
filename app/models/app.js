@@ -27,7 +27,7 @@ $(document).ready(() => {
         renderAlbums()
         // hideMe()
         // appendAlbums()
-        // compareArtists()
+        compareArtists()
       })//return results from NYT API and append to HTML
   })//actions kicked off by first submit button
 
