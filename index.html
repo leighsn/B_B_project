@@ -45,7 +45,9 @@
               <div class="artist-image">
                 <script id="artist-template" type="text/x-handlebars-template">
                   <div class="col-sm-12 text-center">
-                    <img src={{artistImage}} height="300" width="400">
+                    <div class="clear-image">
+                      <img src={{artistImage}} height="300" width="400">
+                    </div>
                 </div>
               </script>
             </div>
@@ -58,7 +60,9 @@
                   {{#each albums as |album|}}
                   <div class="col-sm-2">
                     <!-- Trigger the Modal -->
-                      <img id="myImg" src={{album.albumImage}} alt={{album.name}} width="80" height="80">
+                      <div class="clear-albums">
+                        <img id="myImg" src={{album.albumImage}} alt={{album.name}} width="80" height="80">
+                      </div>
                       <!-- The Modal -->
                       <div id="myModal" class="modal">
                         <!-- The Close Button -->
@@ -72,7 +76,9 @@
                     <div class="album-tracks">
                       <div class="track-names" id={{album.id}}>
                       {{#each album.tracks as |track|}}
-                        <li> {{track.name}} </li>
+                        <div class="clear-tracks">
+                          <li> {{track.name}} </li>
+                        </div>
                       {{/each}}
                     </div>
                     </div>
@@ -95,9 +101,11 @@
               <script id="article-template" type="text/x-handlebars-template">
               {{#each articles as |article|}}
               <div class="col-sm-6 col-sm-6">
+              <div class="clear-articles">
                 <h3>{{article.headline}}</h3>
                 <p>{{article.snippet}}</p>
                 <a href={{article.web_url}}>Link to Article</a>
+              </div>
               </div>
               {{/each}}
               </script>
@@ -122,10 +130,12 @@
               {{#if concerts}}
                 {{#each concerts as |concert|}}
                 <div class="col-sm-6 col-sm-6">
-                  <h3>{{concert.title}}</h3>
-                  <h4>{{concert.dateTime}}</h4>
-                  <h4>{{concert.location}}</h4>
-                  <a href={{concert.ticket_url}}>Buy tickets here!</a>
+                  <div class="clear-events">
+                    <h3>{{concert.title}}</h3>
+                    <h4>{{concert.dateTime}}</h4>
+                    <h4>{{concert.location}}</h4>
+                    <a href={{concert.ticket_url}}>Buy tickets here!</a>
+                  </div>
                 </div>
                 {{/each}}
               {{else}}
@@ -139,6 +149,7 @@
   </div>
   <!-- end of event handlebars -->
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   
   </body>
 </html>
 

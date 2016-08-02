@@ -2,13 +2,13 @@
 $(document).ready(() => {
   $('#artist_form').on('submit',function(event){
     let artist = $('#artist').val()
-    $('#articles').empty()
-    $('#artist_shows').remove()
-    $('#location-input').remove()
-    $('#location-submit').remove()
-    $('#image').empty()
-    $('.artist_name').empty()
-    $('.albums').empty()
+    $('.artist-name').empty()
+    $('.clear-image').empty()
+    $('.clear-albums').empty()
+    $('.clear-tracks').empty()
+    $('.clear-articles').empty()
+    $('.clear-events').empty()
+    $('#event_form').empty()
     $('#event_form').append(`<h3 id="artist_shows">${artist} Concerts by City:</h3><input id="location-input" type="text" ><input id="location-submit" type="submit">`)
     store.articles = []
     artist_store.artist = []
@@ -18,9 +18,8 @@ $(document).ready(() => {
         renderArticles()
         renderArtist()
         renderAlbums()
-        // hideMe()
-        // appendAlbums()
         compareArtists()
+        window.scrollTo(0, 775);
       })//return results from NYT API and append to HTML
   })//actions kicked off by first submit button
 
@@ -37,7 +36,6 @@ $(document).ready(() => {
       var articleTemplate = $('#article-template').html();
       var template = Handlebars.compile(articleTemplate);
       var htmlString = template({articles: store.articles.slice(0, 4)})
-      $('.article-row').empty();
       $('.article-row').append(htmlString);
     }
 
@@ -45,9 +43,7 @@ $(document).ready(() => {
     var artistTemplate = $(`#artist-template`).html();
     var template = Handlebars.compile(artistTemplate);
     var htmlString = template({artistImage: artist_store.artist[0].artistImage})
-    $('.artist-name').empty();
     $('.artist-name').append(`<h3>${artist_store.artist[0].name}</h3>`);
-    $('.artist-image').empty();
     $('.artist-image').append(htmlString);
   }
 
@@ -55,7 +51,6 @@ $(document).ready(() => {
     var concertTemplate = $(`#concert-template`).html();
     var template = Handlebars.compile(concertTemplate);
     var htmlString = template({concerts: concert_store.concerts})
-    $('.concert-row').empty();
     $('.concert-row').append(htmlString);
   }
 
@@ -65,7 +60,7 @@ $(document).ready(() => {
     var htmlString = template({albums: artist_store.artist[0].albums})
     // var trackString = template({tracks: artist_store.artist[0].albums.tracks.name})
 
-    $('.artist-albums').empty();
+    // $('.artist-albums').empty();
     $('.artist-albums').append(htmlString);
     $('.track-names').hide()
     $('.col-sm-2').on('mouseenter', function(event){
