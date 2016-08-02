@@ -21,6 +21,7 @@ $(document).ready(() => {
         compareArtists()
         window.scrollTo(0, 775);
       })//return results from NYT API and append to HTML
+
   })//actions kicked off by first submit button
 
   $('body').on('submit', '#event_form', function(event){

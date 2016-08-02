@@ -28,13 +28,19 @@
 .name {
 	font-family: 'Lato';
 }
-
+.artist-name h3{
+	font-family: 'Olympic Branding';
+	font-size: 500%;
+}
 body {
 	background: #fff;
 	margin: 0;
 	color: #5a5a5a;
 }
-
+.col-sm-12 {
+	margin: 30px;
+	padding-left: 30px;
+}
 .intro-header {
 	height: 100%; /* Full PAge */
 	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
@@ -55,14 +61,17 @@ body {
 
 .article-container {
 	height: 100%;
-	padding-top: 80px;
-	padding-bottom: 20px;
+	margin: 50px;
+
 	text-align: center;
 }
 .artist-albums {
-	padding-top: 20px;
+	padding-top: 50px;
 	padding-bottom: 20px;
+}
 
+.col-2 {
+	padding-bottom: 50px;
 }
 
 .content-section-b {
