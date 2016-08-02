@@ -109,6 +109,38 @@
 <!-- END ARTICLE HANDLEBAR -->
 
 
+ <!-- concert finder form --> 
+  <form id = 'event_form'>
+  </form>
+  <!-- event handlebars -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+          <div class="row">
+            <div class="concert-row">
+              <script id="concert-template" type="text/x-handlebars-template">
+              {{#if concerts}}
+                {{#each concerts as |concert|}}
+                <div class="col-sm-6 col-sm-6">
+                  <h3>{{concert.title}}</h3>
+                  <h4>{{concert.dateTime}}</h4>
+                  <h4>{{concert.location}}</h4>
+                  <a href={{concert.ticket_url}}>Buy tickets here!</a>
+                </div>
+                {{/each}}
+              {{else}}
+                <h3>Sorry there are no concerts in this area!</h3>
+              {{/if}}
+              </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of event handlebars -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>
 
 <html>
   <head>

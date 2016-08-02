@@ -1,8 +1,5 @@
 // kick off function on click
-
-
 $(document).ready(() => {
-
   $('#artist_form').on('submit',function(event){
     let artist = $('#artist').val()
     $('#articles').empty()
@@ -31,9 +28,12 @@ $(document).ready(() => {
      event.preventDefault();
      let location = $('#location-input').val()
      let artist = $('#artist').val().replace((/[" "]/),"%20")
-     var eventFind = findEventNear(artist,location)
-
+     findEventNear(artist,location).then(function appendConcerts() {
+      debugger
+      renderConcerts()
+     })
   });//actions kicked off by second submit button
+
 
 
 
@@ -54,6 +54,15 @@ $(document).ready(() => {
     $('.artist-name').append(`<h3>${artist_store.artist[0].name}</h3>`);
     $('.artist-image').empty();
     $('.artist-image').append(htmlString);
+  }
+
+  function renderConcerts(){
+    debugger
+    var concertTemplate = $(`#concert-template`).html();
+    var template = Handlebars.compile(concertTemplate);
+    var htmlString = template({concerts: concert_store.concerts})
+    $('.concert-row').empty();
+    $('.concert-row').append(htmlString);
   }
 
   function renderAlbums() {
@@ -89,6 +98,4 @@ $(document).ready(() => {
           modal.style.display = "none";
         }
       }
-
-
-})
+  })//return results from APIs and and appends to HTML
