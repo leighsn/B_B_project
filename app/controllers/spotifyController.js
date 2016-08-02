@@ -56,7 +56,7 @@ function getAlbums(artistId){
             drawChart(related_artists)
         })
     }
-  
+
       function drawChart(related_artists) {
        // Create the data table.
        // <a class="btn btn-embossed btn-info" href="#" role="button">View Article</a></p>
@@ -71,17 +71,17 @@ function getAlbums(artistId){
           })
         // Set chart options
         var options = {'title':'Related Artists by popularity',
-                       'width':800,
-                       'height':700,
+                       'width':1400,
+                       'height':800,
                        'colors': ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'],
                         'legend': 'none'};
-  
+
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
-  
+
         // google.visualization.events.addListener(chart, 'select', selectHandler);
-  
+
         //   function selectHandler(e) {
         //     chart.setSelection(chart, kickOff())
         //   }
